@@ -771,16 +771,29 @@ export function PaperCard({ paper, view, listIndex = 0, onPaperUpdate }: PaperCa
 
       {modalState === "hosted-warning" ? (
         <ModalFrame title="AI Generation Disabled" onClose={() => setModalState("none")}>
-          <p className="text-sm leading-7 text-slate">
-            AI generation is disabled on the hosted version. To use AI features, clone the
-            repository and run locally. Contact the developer for access.
-          </p>
+          <div className="space-y-3 text-sm leading-7 text-slate">
+            <p>
+              AI generation is disabled on the hosted version by default.
+            </p>
+            <p>
+              Local model access is an advanced setup that requires a user-run local model
+              server plus user-side permission/configuration before this site can reach it.
+            </p>
+            <p>
+              To use AI features reliably, clone the repository and run the app locally.
+            </p>
+          </div>
         </ModalFrame>
       ) : null}
 
       {modalState === "connect-model" ? (
         <ModalFrame title="Connect Local Model" onClose={() => setModalState("none")}>
           <div className="space-y-4">
+            <p className="text-xs leading-6 text-slate">
+              Advanced setup. Your local model server must already be running on your machine and
+              may require user-side permission or CORS/origin configuration before this site can
+              access it.
+            </p>
             <label className="block text-sm">
               <span className="mb-2 block font-medium text-ink">Base URL</span>
               <input
