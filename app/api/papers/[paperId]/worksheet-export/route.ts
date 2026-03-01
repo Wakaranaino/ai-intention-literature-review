@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import { getExcludedPaperKeySet } from "@/lib/excluded-papers";
 import { basePaperInclude, serializePaper } from "@/lib/paper-serialization";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 
 export async function POST(
   request: Request,
