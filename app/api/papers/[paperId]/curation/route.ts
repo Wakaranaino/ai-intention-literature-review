@@ -7,7 +7,7 @@ import {
 } from "@/lib/curation";
 import { getExcludedPaperKeySet } from "@/lib/excluded-papers";
 import { basePaperInclude, serializePaper } from "@/lib/paper-serialization";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 
 function normalizeEnumValue<T extends string>(value: unknown, allowed: T[]) {
   if (value == null || value === "") {
