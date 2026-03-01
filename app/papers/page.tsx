@@ -95,10 +95,11 @@ export default async function PapersPage({
                 </span>
                 <span className="block">AI Intentions and Alignment Faking.</span>
               </h1>
-              <p className="mt-5 max-w-2xl text-[15px] leading-7 text-slate">
-                A local-first literature workspace for tracking papers, reviewing recent additions,
-                and curating a watchlist with structured tags and enriched metadata.
-              </p>
+              <div className="mt-5 max-w-2xl space-y-1 text-[15px] leading-7 text-slate">
+                <p className="font-medium text-ink">Prototype tool. No accounts yet.</p>
+                <p>Saved changes are currently shared across users.</p>
+                <p>The live corpus currently focuses on papers pulled for 2026.</p>
+              </div>
             </div>
             <div className="border-l border-[var(--line)] pl-5 text-sm text-slate">
               <div className="text-xs uppercase tracking-[0.18em] text-slate/80">Library status</div>
