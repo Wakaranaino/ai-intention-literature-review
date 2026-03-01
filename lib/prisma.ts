@@ -7,8 +7,20 @@ function createClient() {
   const tursoUrl = process.env.TURSO_DATABASE_URL;
   const tursoAuthToken = process.env.TURSO_AUTH_TOKEN;
 
+  if (process.env.VERCEL) {
+    console.log("VERCEL env check:", {
+      hasTursoUrl: !!tursoUrl,
+      hasTursoToken: !!tursoAuthToken,
+      tursoUrlPrefix: tursoUrl?.slice(0, 10),
+      dbUrl: process.env.DATABASE_URL,
+    });
+  }
+
   if (tursoUrl && tursoAuthToken) {
-    const adapter = new PrismaLibSQL({ url: tursoUrl, authToken: tursoAuthToken });
+    const adapter = new PrismaLibSQL({
+      url: tursoUrl,
+      authToken: tursoAuthToken,
+    });
     return new PrismaClient({ adapter });
   }
 
