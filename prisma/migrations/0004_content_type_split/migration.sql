@@ -1,0 +1,18 @@
+ALTER TABLE "Paper" ADD COLUMN "contentTypePrimary" TEXT;
+ALTER TABLE "Paper" ADD COLUMN "contentTypeSecondary" TEXT;
+
+UPDATE "Paper"
+SET "contentTypePrimary" = CASE
+    WHEN "contentType" = 'BENCHMARK' THEN 'BENCHMARK'
+    WHEN "contentType" = 'EVAL_FRAMEWORK' THEN 'EVAL_FRAMEWORK'
+    WHEN "contentType" = 'JAILBREAK_STUDY' THEN 'JAILBREAK_STUDY'
+    WHEN "contentType" = 'RED_TEAMING' THEN 'RED_TEAMING'
+    WHEN "contentType" = 'REWARD_HACKING' THEN 'REWARD_HACKING'
+    WHEN "contentType" = 'CONDITIONAL_BEHAVIOR' THEN 'CONDITIONAL_BEHAVIOR'
+    WHEN "contentType" = 'PROMPT_ATTACK_GENERATOR' THEN 'PROMPT_ATTACK_GENERATOR'
+    WHEN "contentType" = 'MIXED' THEN 'MIXED'
+    WHEN "contentType" = 'CONCEPTUAL' THEN 'CONCEPTUAL'
+    WHEN "contentType" = 'OTHER' THEN 'OTHER'
+    ELSE NULL
+END
+WHERE "contentTypePrimary" IS NULL;

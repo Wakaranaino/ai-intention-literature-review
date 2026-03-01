@@ -1,0 +1,12 @@
+ALTER TABLE "Paper" ADD COLUMN "worksheetCitationText" TEXT;
+ALTER TABLE "Paper" ADD COLUMN "worksheetSourceLink" TEXT;
+ALTER TABLE "Paper" ADD COLUMN "contentType" TEXT;
+ALTER TABLE "Paper" ADD COLUMN "contentTypeOtherText" TEXT;
+ALTER TABLE "Paper" ADD COLUMN "qualityScore" INTEGER;
+ALTER TABLE "Paper" ADD COLUMN "worksheetNote" TEXT;
+ALTER TABLE "Paper" ADD COLUMN "relevanceScore" INTEGER;
+ALTER TABLE "Paper" ADD COLUMN "extractablePotential" TEXT;
+ALTER TABLE "Paper" ADD COLUMN "codeRepoUrl" TEXT;
+ALTER TABLE "Paper" ADD COLUMN "datasetUrl" TEXT;
+ALTER TABLE "Paper" ADD COLUMN "projectUrl" TEXT;
+ALTER TABLE "Paper" ADD COLUMN "linksProvenance" TEXT;

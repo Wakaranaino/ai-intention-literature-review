@@ -1,0 +1,119 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum PaperKind {
+  PREPRINT
+  JOURNAL
+  CONFERENCE
+  WORKSHOP
+  UNKNOWN
+}
+
+enum ContentType {
+  BENCHMARK
+  EVAL_FRAMEWORK
+  JAILBREAK_STUDY
+  RED_TEAMING
+  REWARD_HACKING
+  ALIGNMENT_FAKING
+  CONDITIONAL_BEHAVIOR
+  PROMPT_ATTACK_GENERATOR
+  MIXED
+  CONCEPTUAL
+  OTHER
+}
+
+enum ExtractablePotential {
+  DIRECT
+  ADAPTABLE
+  NOT
+  UNKNOWN
+}
+
+model Paper {
+  id                   String               @id @default(uuid())
+  title                String
+  abstract             String
+  authors              String
+  year                 Int
+  publishedAt          DateTime
+  venue                String?
+  paperKind            PaperKind            @default(UNKNOWN)
+  doi                  String?              @unique
+  doiUrl               String?
+  sourceUrl            String
+  paperKey             String?
+  pdfUrl               String
+  semanticScholarId    String?              @unique
+  arxivId              String?              @unique
+  citationCount        Int?
+  watchlisted          Boolean              @default(false)
+  worksheetExportedAt  DateTime?
+  worksheetCitationText String?
+  worksheetSourceLink  String?
+  contentTypePrimary   ContentType?
+  contentTypeSecondary ContentType?
+  contentTypeOtherText String?
+  qualityScore         Int?
+  worksheetNote        String?
+  relevanceScore       Int?
+  extractablePotential ExtractablePotential?
+  studyLink            String?
+  linksProvenance      String?
+  createdAt            DateTime             @default(now())
+  updatedAt            DateTime             @updatedAt
+  paperTags         PaperTag[]
+
+  @@index([publishedAt])
+  @@index([year])
+  @@index([watchlisted])
+  @@index([paperKey])
+  @@index([worksheetExportedAt])
+}
+
+model ExcludedPaper {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  sourceUrl String
+  createdAt DateTime @default(now())
+}
+
+model IngestWindow {
+  id        String   @id @default(cuid())
+  mode      String
+  startDate DateTime
+  endDate   DateTime
+  createdAt DateTime @default(now())
+
+  @@unique([mode, startDate, endDate])
+  @@index([mode, startDate, endDate])
+}
+
+model IngestCheckpoint {
+  id        String   @id @default(cuid())
+  sliceKey  String   @unique
+  nextStart Int
+  updatedAt DateTime @updatedAt
+}
+
+model Tag {
+  id        String     @id @default(uuid())
+  name      String     @unique
+  paperTags PaperTag[]
+}
+
+model PaperTag {
+  paperId String
+  tagId   String
+  paper   Paper @relation(fields: [paperId], references: [id], onDelete: Cascade)
+  tag     Tag   @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([paperId, tagId])
+  @@index([tagId])
+}

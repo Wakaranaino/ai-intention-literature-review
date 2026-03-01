@@ -1,0 +1,95 @@
+domain_keywords:
+  - artificial intelligence
+  - ai
+  - llm
+  - llms
+  - language model
+  - language models
+  - large language model
+  - large language models
+  - foundation model
+  - foundation models
+  - transformer
+  - transformers
+  - generative model
+  - generative models
+  - chatbot
+  - assistant model
+  - model behavior
+  - model behaviors
+  - neural network
+  - neural networks
+  - machine learning
+  - reinforcement learning
+  - agentic
+  - ai agent
+  - ai agents
+  - autonomous agent
+  - autonomous agents
+  - tool use
+  - prompt
+  - prompts
+  - inference-time
+  - safety eval
+  - safety evaluation
+  - benchmark for language models
+  - benchmark for llms
+  - jailbreak defense
+  - prompt injection defense
+
+behavior_keywords:
+  - alignment faking
+  - deceptive alignment
+  - deceptively aligned
+  - strategic compliance
+  - strategic obedience
+  - deceptive compliance
+  - sleeper agent
+  - sleeper agents
+  - sandbagging
+  - reward hacking
+  - reward misspecification
+  - specification gaming
+  - evaluator gaming
+  - gaming the evaluator
+  - gaming the monitor
+  - oversight gaming
+  - monitor gaming
+  - conditional refusal
+  - jailbreak
+  - prompt injection
+  - policy evasion
+  - ai intentions
+  - model intentions
+  - intent elicitation
+  - intention elicitation
+  - deceptive behavior
+  - deceptive reasoning
+  - strategic deception
+  - strategic lying
+  - scheming
+  - hidden objective
+  - hidden objectives
+  - hidden goal
+  - hidden goals
+  - hidden preference
+  - hidden preferences
+  - internal goal
+  - internal goals
+  - internal objective
+  - internal objectives
+  - latent objective
+  - latent objectives
+  - covert objective
+  - covert objectives
+  - goal representation
+  - goal misgeneralization
+  - situational awareness
+  - objective robustness
+  - deceptive models
+  - deceptive agents
+  - models with hidden goals
+  - reward hacking in language models
+  - specification gaming in language models
+  - evaluator exploitation
+  - sabotage under evaluation

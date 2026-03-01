@@ -1,0 +1,110 @@
+Group 1 — deception / intent / scheming cluster
+	•	“alignment faking”
+	•	“deceptive alignment”
+	•	deception
+	•	deceptive
+	•	scheming
+	•	“situational awareness”
+	•	“goal misgeneralization”
+	•	“policy evasion”
+
+Group 2 — reward/spec gaming cluster
+	•	“reward hacking”
+	•	“specification gaming”
+	•	sandbagging
+	•	“strategic compliance”
+
+Group 3 — jailbreak/refusal cluster
+	•	jailbreak
+	•	“prompt injection”
+	•	“conditional refusal”
+	•	“sleeper agent”
+
+Safe default recent scan:
+
+cd /Users/bohago/Desktop/Codex_openai/AI_Intentions
+export DATABASE_URL="file:./dev.db"
+npm run ingest
+
+Aggressive backfill:
+
+cd /Users/bohago/Desktop/Codex_openai/AI_Intentions
+export DATABASE_URL="file:./dev.db"
+BACKFILL_START_DATE="2026-01-01" \
+BACKFILL_END_DATE="2026-02-28" \
+BACKFILL_SLICE_DAYS=3 \
+ARXIV_REQUEST_DELAY_MS=5000 \
+ARXIV_RETRY_ATTEMPTS=8 \
+ARXIV_REQUEST_TIMEOUT_MS=60000 \
+ARXIV_MAX_RESULTS=50 \
+npm run backfill
+
+Middle-ground backfill:
+
+cd /Users/bohago/Desktop/Codex_openai/AI_Intentions
+export DATABASE_URL="file:./dev.db"
+BACKFILL_START_DATE="2026-01-01" \
+BACKFILL_END_DATE="2026-02-28" \
+BACKFILL_SLICE_DAYS=7 \
+npm run backfill
+
+
+
+
+
+
+
+Ingest Templates ____
+
+Recent:
+
+cd /Users/bohago/Desktop/Codex_openai/AI_Intentions
+export DATABASE_URL="file:./dev.db"
+INGEST_START_DATE="2026-02-27" INGEST_END_DATE="2026-02-28" npm run ingest
+npm run ingest
+
+Recent ingest, explicit single mode with your own terms:
+
+ARXIV_QUERY_MODE="single" \
+ARXIV_QUERY_TERMS='alignment,deception,"alignment faking","reward hacking"' \
+INGEST_START_DATE="2026-02-27" \
+INGEST_END_DATE="2026-02-28" \
+npm run ingest
+
+Recent ingest, grouped mode:
+
+ARXIV_QUERY_MODE="grouped" \
+ARXIV_QUERY_GROUPS='alignment,deceptive,"alignment faking"||jailbreak,"prompt injection"||"reward hacking","strategic compliance"' \
+INGEST_START_DATE="2026-02-27" \
+INGEST_END_DATE="2026-02-28" \
+npm run ingest
+
+Backfill, default single mode:
+
+BACKFILL_START_DATE="2026-01-01" BACKFILL_END_DATE="2026-02-28" npm run backfill
+
+Backfill, smaller slices:
+
+BACKFILL_START_DATE="2026-01-01" \
+BACKFILL_END_DATE="2026-02-28" \
+BACKFILL_SLICE_DAYS=3 \
+npm run backfill
+
+Backfill, safer/slower for arXiv:
+
+BACKFILL_START_DATE="2026-01-01" \
+BACKFILL_END_DATE="2026-02-28" \
+BACKFILL_SLICE_DAYS=3 \
+ARXIV_REQUEST_DELAY_MS=5000 \
+ARXIV_RETRY_ATTEMPTS=8 \
+ARXIV_REQUEST_TIMEOUT_MS=60000 \
+npm run backfill
+
+Backfill, grouped mode:
+
+ARXIV_QUERY_MODE="grouped" \
+ARXIV_QUERY_GROUPS='alignment,deceptive,"alignment faking"||jailbreak,"prompt injection"||"reward hacking","strategic compliance"' \
+BACKFILL_START_DATE="2026-01-01" \
+BACKFILL_END_DATE="2026-02-28" \
+BACKFILL_SLICE_DAYS=3 \
+npm run backfill

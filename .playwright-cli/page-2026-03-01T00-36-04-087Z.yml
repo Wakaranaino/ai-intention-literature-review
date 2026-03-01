@@ -1,0 +1,25 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "｡ AI Daily Brief soft radar for big AI shifts" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e5]: ｡
+        - generic [ref=e6]:
+          - paragraph [ref=e7]: AI Daily Brief
+          - paragraph [ref=e8]: soft radar for big AI shifts
+      - navigation [ref=e9]:
+        - link "Today" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "Weekly" [ref=e11] [cursor=pointer]:
+          - /url: /weekly
+        - link "Monthly" [ref=e12] [cursor=pointer]:
+          - /url: /monthly
+        - link "Watchlist" [ref=e13] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Admin" [ref=e14] [cursor=pointer]:
+          - /url: /admin
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - heading "404" [level=1] [ref=e18]
+      - heading "This page could not be found." [level=2] [ref=e20]
+  - alert [ref=e21]
