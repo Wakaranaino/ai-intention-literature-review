@@ -97,8 +97,10 @@ export default async function PapersPage({
               </h1>
               <div className="mt-5 max-w-2xl space-y-1 text-[15px] leading-7 text-slate">
                 <p className="font-medium text-ink">Prototype tool. No accounts yet.</p>
-                <p>Saved changes are currently shared across users.</p>
-                <p>The live corpus currently focuses on papers pulled for 2026.</p>
+                <p>
+                  Saved changes are shared across users, and the live corpus currently focuses on
+                  papers pulled for 2026.
+                </p>
                 <p>Prototype maintained by VT Gao.</p>
               </div>
             </div>
