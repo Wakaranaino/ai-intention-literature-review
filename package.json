@@ -13,6 +13,7 @@
     "prisma:migrate": "prisma migrate dev",
     "ingest": "tsx scripts/ingest.ts",
     "backfill": "node --import tsx scripts/backfill.ts",
+    "retag": "tsx scripts/retag.ts",
     "backfill:paper-keys": "node --import tsx scripts/backfill-paper-keys.ts",
     "normalize:arxiv-canonical": "node --import tsx scripts/normalize-arxiv-canonical.ts",
     "seed": "tsx prisma/seed.ts",
